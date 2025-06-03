@@ -1,0 +1,12 @@
+const express = require('express');
+const router = express.Router();
+const { createUser, forgetPassword, createMail, UpdateUser, getAllUsers, UpdateUserInfo, softdelete } = require('../Controller/userController');
+const { userAuth } = require('../Controller/authController');
+router.post('/createUser', createUser);
+router.patch('/UpdateUser', UpdateUser);
+router.patch('/updateUsers/:id', UpdateUserInfo);
+router.patch('/forgotpassword', forgetPassword);
+router.post('/createMail', createMail);
+router.get('/getAllUsers', userAuth, getAllUsers);
+router.patch('/softdelete/:id', userAuth, softdelete);
+module.exports = router;
