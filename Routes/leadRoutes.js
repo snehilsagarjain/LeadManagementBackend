@@ -1,0 +1,11 @@
+const express = require('express');
+const router = express.Router();
+const { userAuth } = require('../Controller/authController');
+const { getAllLeads, createLead, UpdateLead, getLeadsByUserId, softdelete, deleteLead } = require('../Controller/leadController');
+router.post('/createLead', userAuth, createLead);
+router.patch('/updateLeads/:id', userAuth, UpdateLead);
+router.get('/getAllLeads', userAuth, getAllLeads);
+router.get('/getLeadsByUserId/:id', userAuth, getLeadsByUserId);
+router.patch('/softdelete/:id', userAuth, softdelete);
+router.delete('/deleteLead/:id', userAuth, deleteLead);
+module.exports = router;
