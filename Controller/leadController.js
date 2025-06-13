@@ -42,6 +42,9 @@ exports.createLead = async (req, res) => {
 
         await leads.save();
         res.status(200).json(leads);
+        if (data.status == "InProgress") {
+
+        }
     }
     catch (err) { return res.status(500).json({ message: "internal server error" }) }
 

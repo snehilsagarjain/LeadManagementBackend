@@ -18,7 +18,8 @@ const lead = mongoose.Schema({
     customerType: { type: String, required: true },
     purchaseHistory: { type: Array },
     // , required: true
-    medicalNeeds: { type: Array }
+    medicalNeeds: { type: Array },
     // , required: true
+    notified: { type: Boolean, default: false },
 }, { timestamps: true });
 module.exports = mongoose.model('lead', lead);

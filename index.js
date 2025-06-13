@@ -21,8 +21,10 @@ app.use('/user', userroute)
 app.use('/auth', authroute)
 app.use('/lead', leadroute)
 
-mongoose.connect(process.env.MONGO_URL)
+mongoose.connect(process.env.MONGO_URI)
     .then(() => { console.log(`connected`) })
     .catch(() => { console.log(`Error in connecting`) })
+
+require('./notificationScheduler'); // 👈 Starts cron job
 
 app.listen(port, () => { console.log(`server is running at ${port}`) })

@@ -26,7 +26,7 @@ const verifyToken = (req) => {
     return new Promise((resolve, reject) => {
         const authHeader = req.headers.authorization;
         if (!authHeader) return reject("No token provided");
-
+        console.log(authHeader);
         const token = authHeader.split(" ")[1]; // Extract token
         console.log(`>>>>>>> Token: ${token}`);
 
